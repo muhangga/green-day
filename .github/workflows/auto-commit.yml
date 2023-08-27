@@ -1,4 +1,4 @@
-name: Auto commitT
+name: Auto committ
 
 on:
 
@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: Set global directory
         run: git config --global --add safe.directory /github/workspace
-      - uses: actions/checkout@v3     
+      - uses: actions/checkout@master    
         with:
          persist-credentials: false
-         fetch-depth: 1
+         fetch-depth: 0
 
       - name: Modify last update
         run: |
