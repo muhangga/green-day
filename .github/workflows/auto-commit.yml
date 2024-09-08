@@ -4,7 +4,7 @@ on:
 
   push:
     branches:
-      - master
+      - main
       
   schedule:
   - cron: "0 1/4 * * *"
@@ -15,11 +15,11 @@ jobs:
     steps:
       - name: Set global directory
         run: git config --global --add safe.directory /github/workspace
-      - uses: actions/checkout@master    
+      - uses: actions/checkout@v3     
         with:
          persist-credentials: false
-         fetch-depth: 0
-
+         fetch-depth: 1
+         
       - name: Modify last update
         run: |
           cat > LAST_UPDATED_COMMIT
@@ -31,7 +31,7 @@ jobs:
           git config --local user.email "anggayasdoe11@gmail.com"
           git config --local user.name "muhangga"
           git add -A
-          git commit -m "auto commit"
+          git commit -m "what are u looking for?"
           
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.6.0
